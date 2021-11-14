@@ -1,0 +1,18 @@
+<h1>Palindromes#view</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Number</th>
+        <th>Square</th>
+    </tr>
+    <% @numbers.each_with_index do |numbers, i| %>
+    <tr>
+        <td><%= i+1 %></td>
+        <td><%= numbers %></td>
+        <td><%= numbers * numbers %></td>
+    </tr>
+    <% end %>
+</table><br/>
+
+<span class="p-2 text-dark"><%= link_to "Repeat calculation", :palindromes_input %> </span>

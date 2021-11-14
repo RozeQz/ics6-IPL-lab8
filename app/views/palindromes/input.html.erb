@@ -1,0 +1,10 @@
+<h1>Palindromes#input</h1>
+<p>Find me in app/views/palindromes/input.html.erb</p><br/>
+
+<%= form_tag("/palindromes/view", :method => "get") do %> 
+
+    <%= label_tag("Input n: ") %> 
+    <%= text_field_tag(:n) %> <br/><br/>        <%#(:n, default_value)%>
+
+    <%= submit_tag("Find palindromes", {:class => 'btn btn-primary'}) %>
+<% end %>
