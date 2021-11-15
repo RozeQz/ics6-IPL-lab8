@@ -18,13 +18,10 @@ class PalindromesController < ApplicationController
 
   def view
     n = Integer(params[:n])
-    @numbers = (0..n).select{ |i| palindrome?(i*i)}
-
+    @numbers = (0..n).select { |i| palindrome?(i * i) }
   rescue ArgumentError
     @error = 'Incorrect input'
-  
   rescue TypeError
-    @error = 'You have to enter something'  
-
+    @error = 'You have to enter something'
   end
 end
