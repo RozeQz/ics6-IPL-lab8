@@ -17,8 +17,6 @@ class PalindromesController < ApplicationController
   end
 
   def view
-    puts 'Enter N:'
-    # n = params[:n].to_i
     n = Integer(params[:n])
     number_array = []
     (n + 1).times do |i|
@@ -28,7 +26,10 @@ class PalindromesController < ApplicationController
     @numbers = number_array
 
   rescue ArgumentError
-    @error = 'Incorrect imput'
+    @error = 'Incorrect input'
+  
+  rescue TypeError
+    @error = 'You have to enter something'  
 
   end
 end
