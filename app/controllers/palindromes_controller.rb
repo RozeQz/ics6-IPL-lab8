@@ -18,14 +18,17 @@ class PalindromesController < ApplicationController
 
   def view
     puts 'Enter N:'
-    n = params[:n].to_i
+    # n = params[:n].to_i
+    n = Integer(params[:n])
     number_array = []
     (n + 1).times do |i|
       number_array << i if palindrome?(i * i)
     end
 
     @numbers = number_array
-  end
-end 
 
-# github error
+  rescue ArgumentError
+    @error = 'Incorrect imput'
+
+  end
+end
