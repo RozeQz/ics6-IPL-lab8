@@ -18,12 +18,7 @@ class PalindromesController < ApplicationController
 
   def view
     n = Integer(params[:n])
-    number_array = []
-    (n + 1).times do |i|
-      number_array << i if palindrome?(i * i)
-    end
-
-    @numbers = number_array
+    @numbers = (0..n).select{ |i| palindrome?(i*i)}
 
   rescue ArgumentError
     @error = 'Incorrect input'
