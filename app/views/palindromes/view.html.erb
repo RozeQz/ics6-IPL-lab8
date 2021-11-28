@@ -3,20 +3,23 @@
 <% if @error %>
 <p class = "error"><%= @error %></p>
 <% else %>
+<div>You entered: <%= @input %></div>
+<div>Answer: <%= @result %></div><br/>  
     <table class="table table-striped">
         <tr>
-            <th>#</th>
-            <th>Number</th>
-            <th>Square</th>
+            <th scope="col">#</th>
+            <th scope="col">Number</th>
+            <th scope="col">Square</th>
         </tr>
         <% @numbers&.each_with_index do |numbers, i| %>
         <tr>
-            <td><%= i+1 %></td>
-            <td><%= numbers %></td>
-            <td><%= numbers * numbers %></td>
+            <td scope="row"><%= i+1 %></td>
+            <td scope="row"><%= numbers %></td>
+            <td scope="row"><%= numbers * numbers %></td>
         </tr>
         <% end %>
     </table><br/>
 <% end %>
-
-<span><%= link_to "Repeat calculation", :palindromes_input %> </span>
+<button type="button" class="btn btn-link">
+    <%= link_to "Repeat calculation", root_path %>
+</button>

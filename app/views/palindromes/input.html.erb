@@ -6,8 +6,8 @@
 
 <%= form_tag("/palindromes/view", :method => "get") do %> 
 
-    <%= label_tag("Input n: ") %> 
-    <%= text_field_tag(:n) %> <br/><br/>        <%#(:n, default_value)%>
+    <%= label_tag :n, "Input n: " %> 
+    <%= text_field_tag :n, '', id: 'input_number', required: true %> <br/><br/>        <%#(:n, default_value)%>
 
-    <%= submit_tag("Find palindromes", {:class => 'btn btn-primary'}) %>
+    <%= button_tag "Find palindromes", type: 'submit', id: 'btn_commit', class: 'btn btn-primary' %>
 <% end %>
