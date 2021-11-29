@@ -5,20 +5,24 @@ class PalindromesController < ApplicationController
   def input; end
 
   def view
-    raise StandardError if params[:n].length.zero?
-
-    @input = Integer(params[:n])
+    @input = validate_input(params[:n])
     @numbers = (0..@input).select { |i| palindrome?(i * i) }
     @result = @numbers.size
-  rescue ArgumentError
-    @error = 'Incorrect input'
-  rescue StandardError
-    @error = 'You have to enter something'
+  rescue StandardError => e
+    @error = case e.class.to_s
+             when 'ArgumentError' then 'Incorrect input. Do not use letters!'
+             else e
+             end
   end
 
   private
 
   def palindrome?(number)
     number.to_s == number.to_s.reverse
+  end
+
+  def validate_input(input)
+    raise 'You have to enter something!' if input.empty?
+    Integer(input)
   end
 end
