@@ -10,7 +10,7 @@ class PalindromesController < ApplicationController
     @result = @numbers.size
   rescue StandardError => e
     @error = case e.class.to_s
-             when 'ArgumentError' then 'Incorrect input. Do not use letters!'
+             when 'ArgumentError' then 'Некорректный ввод. Используйте только цифры!'
              else e
              end
   end
@@ -22,7 +22,7 @@ class PalindromesController < ApplicationController
   end
 
   def validate_input(input)
-    raise 'You have to enter something!' if input.empty?
+    raise 'Вы ничего не ввели!' if input.empty?
     Integer(input)
   end
 end
