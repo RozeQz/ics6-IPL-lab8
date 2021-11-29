@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'palindromes#input'
+  root 'palindrome#input'
 
-  get 'palindromes/input'
-  get 'palindromes/view'
+  get 'palindrome/input'
+  get 'palindrome/view'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

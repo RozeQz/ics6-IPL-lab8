@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller class
-class PalindromesController < ApplicationController
+class PalindromeController < ApplicationController
   def input; end
 
   def view
